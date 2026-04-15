@@ -242,6 +242,10 @@
             gap: 0.45rem;
         }
 
+        .exam-title-sep {
+            margin: 0 0.35rem;
+        }
+
         #examSection {
             display: none;
             padding-bottom: 120px;
@@ -642,6 +646,10 @@
             width: 100%;
         }
 
+        .result-sub-sep {
+            margin: 0 0.35rem;
+        }
+
         .result-meta {
             margin-top: 0.8rem;
             color: #6b7280;
@@ -692,6 +700,20 @@
                 bottom: 10px;
                 padding: 0.75rem 0.8rem;
             }
+            .result-sub-sep {
+                display: none;
+            }
+            .result-sub-break {
+                display: block;
+                margin-top: 0.2rem;
+            }
+            .exam-title-sep {
+                display: none;
+            }
+            .exam-title-break {
+                display: block;
+                margin-top: 0.1rem;
+            }
             .progress-head {
                 font-size: 0.88rem;
             }
@@ -734,7 +756,7 @@
 
     <div id="examSection">
     <div class="paper-card exam-header glass-glow">
-        <h1>🤖 与AI同行 · 入门水平测试卷</h1>
+        <h1>🤖 与AI同行<span class="exam-title-sep">·</span><span class="exam-title-break">入门水平测试卷</span></h1>
         <div class="sub">AI时代的个人战略·探索营<br>📝 测一测你对AI的知识了解多少？<span class="score-line">满分100分，60分就算拿到AI同行资格证~</span></div>
         <div class="badge-row"><span class="badge">✨ 单选10题×3分</span> <span class="badge">📚 多选5题×6分</span> <span class="badge">⚡ 判断10题×3分</span> <span class="badge">🎭 情景选择2题×5分</span></div>
 
@@ -767,7 +789,7 @@
     <div id="resultSection" class="result-page">
         <div class="paper-card result-card glass-glow">
             <h1 class="result-title">🏁 交卷结果</h1>
-            <div class="sub result-sub">《AI时代的个人战略》·探索营 · 探索任务成绩页</div>
+            <div class="sub result-sub">《AI时代的个人战略》·探索营<span class="result-sub-sep">·</span><span class="result-sub-break">探索任务成绩页</span></div>
            
             <div id="resultStudentInfo" class="result-meta"></div>
             <div id="scoreDisplay" class="score-area"></div>
@@ -1116,7 +1138,7 @@
 
         const percent = total;
         document.getElementById('resultStudentInfo').textContent = document.getElementById('studentInfo').textContent;
-        document.getElementById('scoreDisplay').innerHTML = `你的本次得分：<span class="score-value">${percent}</span> 分（满分100分）`;
+        document.getElementById('scoreDisplay').innerHTML = `本次得分：<span class="score-value">${percent}</span> 分`;
         document.getElementById('rankDisplay').innerHTML = rank;
         document.getElementById('resultStats').innerHTML = `
             <span class="stat-chip correct">答对 ${correctCount} 题</span>
