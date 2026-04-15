@@ -28,29 +28,119 @@
             background: rgba(255,255,255,0.96);
             backdrop-filter: blur(0px);
             border-radius: 2rem;
-            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.15), 0 1px 3px rgba(0,0,0,0.05);
+            box-shadow: 0 20px 35px -12px rgba(56, 24, 120, 0.18), 0 1px 3px rgba(0,0,0,0.05);
             padding: 1.8rem 2rem;
             margin-bottom: 2rem;
             transition: all 0.2s;
             border: 1px solid rgba(255,255,255,0.5);
         }
 
+        .glass-glow {
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 10% 8%, rgba(124, 58, 237, 0.12), transparent 36%),
+                radial-gradient(circle at 92% 0%, rgba(167, 139, 250, 0.14), transparent 32%),
+                rgba(255,255,255,0.94);
+            border: 1px solid rgba(124, 58, 237, 0.2);
+            box-shadow: 0 24px 46px -18px rgba(76, 29, 149, 0.26), 0 4px 12px rgba(76, 29, 149, 0.08);
+            backdrop-filter: blur(10px);
+        }
+
+        .glass-glow::after {
+            content: "";
+            position: absolute;
+            right: -90px;
+            top: -90px;
+            width: 210px;
+            height: 210px;
+            border-radius: 999px;
+            background: radial-gradient(circle, rgba(196, 181, 253, 0.4) 0%, rgba(196, 181, 253, 0) 72%);
+            pointer-events: none;
+        }
+
         .cover-card {
             text-align: center;
-            padding: 2.4rem 2rem;
+            padding: 2.6rem 2rem 2.3rem;
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 12% 12%, rgba(124, 58, 237, 0.16), transparent 36%),
+                radial-gradient(circle at 88% 0%, rgba(167, 139, 250, 0.18), transparent 34%),
+                rgba(255,255,255,0.97);
+            border: 1px solid rgba(124, 58, 237, 0.24);
+            box-shadow: 0 24px 46px -16px rgba(76, 29, 149, 0.28), 0 4px 12px rgba(76, 29, 149, 0.08);
+        }
+
+        .cover-card::after {
+            content: "";
+            position: absolute;
+            right: -90px;
+            top: -90px;
+            width: 220px;
+            height: 220px;
+            border-radius: 999px;
+            background: radial-gradient(circle, rgba(196, 181, 253, 0.45) 0%, rgba(196, 181, 253, 0) 72%);
+            pointer-events: none;
+        }
+
+        .brand-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.38rem 0.9rem;
+            border-radius: 999px;
+            border: 1px solid #d8b4fe;
+            color: #6d28d9;
+            background: rgba(248, 245, 255, 0.92);
+            font-size: 0.82rem;
+            font-weight: 700;
+            margin-bottom: 0.95rem;
+            letter-spacing: 0.2px;
         }
 
         .cover-title {
-            font-size: 2.2rem;
-            color: #6d28d9;
-            font-weight: 700;
-            margin-bottom: 0.6rem;
+            font-size: 2.35rem;
+            background: linear-gradient(135deg, #5b21b6 0%, #7c3aed 45%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 800;
+            margin-bottom: 0.45rem;
+            letter-spacing: 0.4px;
         }
 
         .cover-subtitle {
-            color: #4b6f8c;
-            margin-bottom: 1.5rem;
-            font-size: 1rem;
+            color: #5b6280;
+            margin-bottom: 0.9rem;
+            font-size: 1.03rem;
+            font-weight: 600;
+        }
+
+        .cover-desc {
+            margin: 0 auto 1.5rem;
+            max-width: 640px;
+            color: #5f6376;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .cover-meta-row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .cover-meta-item {
+            background: #f5f3ff;
+            border: 1px solid #ddd6fe;
+            color: #5b21b6;
+            border-radius: 999px;
+            padding: 0.22rem 0.78rem;
+            font-size: 0.8rem;
+            font-weight: 700;
         }
 
         .student-form {
@@ -110,6 +200,7 @@
             margin-top: 1rem;
             color: #5b21b6;
             font-weight: 600;
+            text-align: center;
         }
 
         .mission-text {
@@ -120,10 +211,40 @@
             border-left: 4px solid #7c3aed;
             padding: 0.7rem 0.9rem;
             border-radius: 0.7rem;
+            text-align: center;
+        }
+
+        .exam-header {
+            text-align: center;
+        }
+
+        .exam-header h1 {
+            justify-content: center;
+            width: 100%;
+        }
+
+        .exam-header .sub {
+            border-left: none;
+            padding-left: 0;
+            line-height: 1.8;
+        }
+
+        .score-line {
+            display: block;
+            color: #6d28d9;
+            font-weight: 700;
+        }
+
+        .badge-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.45rem;
         }
 
         #examSection {
             display: none;
+            padding-bottom: 120px;
         }
 
         h1 {
@@ -200,11 +321,22 @@
 
         .q-type {
             font-size: 0.7rem;
-            background: #d9e8f5;
+            background: #ece5ff;
             padding: 0.2rem 0.6rem;
             border-radius: 30px;
             font-weight: normal;
-            color: #2c5a7a;
+            color: #5b21b6;
+            border: 1px solid #d8b4fe;
+        }
+
+        .q-type-single,
+        .q-type-multi,
+        .q-type-tf,
+        .q-type-scenario {
+            background: #7c3aed;
+            color: #ffffff;
+            border-color: #6d28d9;
+            font-weight: 600;
         }
 
         .options {
@@ -222,12 +354,24 @@
             border-radius: 0.65rem;
             border: 1px solid transparent;
             cursor: pointer;
-            transition: 0.15s;
+            transition: 0.16s;
         }
 
         .option-item:hover {
-            background: #f5f3ff;
-            border-color: #ddd6fe;
+            background: #ede9fe;
+            border-color: #a78bfa;
+            box-shadow: inset 0 0 0 1px rgba(109, 40, 217, 0.18);
+        }
+
+        .option-item:active {
+            background: #ddd6fe;
+            border-color: #8b5cf6;
+        }
+
+        .option-item:has(input:checked) {
+            background: #ddd6fe;
+            border-color: #8b5cf6;
+            box-shadow: inset 0 0 0 1px rgba(91, 33, 182, 0.24);
         }
 
         .option-item span {
@@ -288,31 +432,83 @@
             margin: 2rem 0 1rem;
         }
 
-        button {
-            background: #7c3aed;
-            border: none;
-            padding: 0.8rem 2rem;
-            font-size: 1rem;
+        .quiz-toolbar {
+            position: fixed;
+            left: 50%;
+            bottom: 16px;
+            transform: translateX(-50%);
+            width: min(860px, calc(100% - 24px));
+            z-index: 999;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid #e7ddff;
+            border-radius: 1rem;
+            padding: 0.9rem 1rem;
+            box-shadow: 0 14px 30px rgba(76, 29, 149, 0.18);
+        }
+
+        .progress-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.45rem;
+            color: #5b21b6;
             font-weight: 600;
-            border-radius: 60px;
+        }
+
+        .progress-track {
+            width: 100%;
+            height: 10px;
+            background: #efe7ff;
+            border-radius: 999px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #7c3aed, #8b5cf6);
+            transition: width 0.25s ease;
+        }
+
+        button {
+            background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);
+            border: none;
+            padding: 0.82rem 2rem;
+            font-size: 0.98rem;
+            font-weight: 700;
+            letter-spacing: 0.2px;
+            border-radius: 999px;
             color: white;
             cursor: pointer;
-            transition: 0.2s;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            border: 1px solid rgba(255,255,255,0.3);
+            transition: transform 0.18s ease, box-shadow 0.2s ease, filter 0.2s ease;
+            box-shadow: 0 10px 22px rgba(76, 29, 149, 0.26), inset 0 1px 0 rgba(255,255,255,0.22);
+            border: 1px solid rgba(255,255,255,0.18);
         }
 
         button.secondary {
-            background: #6d28d9;
+            background: linear-gradient(135deg, #6d28d9 0%, #7c3aed 100%);
         }
 
         button.warning {
-            background: #d97706;
+            background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
         }
 
         button:hover {
-            transform: translateY(-2px);
-            filter: brightness(1.05);
+            transform: translateY(-2px) scale(1.01);
+            filter: brightness(1.04);
+            box-shadow: 0 14px 26px rgba(76, 29, 149, 0.3), inset 0 1px 0 rgba(255,255,255,0.24);
+        }
+
+        button:active {
+            transform: translateY(0) scale(0.995);
+            filter: brightness(0.99);
+            box-shadow: 0 6px 14px rgba(76, 29, 149, 0.22), inset 0 1px 0 rgba(255,255,255,0.2);
+        }
+
+        button:focus-visible {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.22), 0 10px 22px rgba(76, 29, 149, 0.26);
         }
 
         .score-area {
@@ -355,6 +551,33 @@
             font-size: 1.75rem;
             font-weight: 800;
             line-height: 1.25;
+        }
+
+        .result-stats {
+            display: flex;
+            justify-content: center;
+            gap: 0.7rem;
+            margin-top: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-chip {
+            border-radius: 999px;
+            padding: 0.35rem 0.8rem;
+            font-size: 0.86rem;
+            font-weight: 700;
+        }
+
+        .stat-chip.correct {
+            background: #ecfdf3;
+            border: 1px solid #bbf7d0;
+            color: #166534;
+        }
+
+        .stat-chip.wrong {
+            background: #fff7ed;
+            border: 1px solid #fed7aa;
+            color: #c2410c;
         }
 
         .course-tag {
@@ -458,8 +681,19 @@
             .paper-card {
                 padding: 1rem;
             }
+            #examSection {
+                padding-bottom: 135px;
+            }
             .student-form {
                 grid-template-columns: 1fr;
+            }
+            .quiz-toolbar {
+                width: calc(100% - 16px);
+                bottom: 10px;
+                padding: 0.75rem 0.8rem;
+            }
+            .progress-head {
+                font-size: 0.88rem;
             }
             .question-item {
                 padding: 0.8rem;
@@ -473,8 +707,15 @@
 <body>
 <div class="container">
     <div id="coverSection" class="paper-card cover-card">
+        <div class="brand-chip">AI时代的个人战略 · 探索营</div>
         <div class="cover-title">与AI同行</div>
         <div class="cover-subtitle">入门考试</div>
+        <div class="cover-desc">这是一份课程探索任务测评，帮助你快速建立AI时代的基础认知、协作方法与安全判断力。</div>
+        <div class="cover-meta-row">
+            <span class="cover-meta-item">总分100分</span>
+            <span class="cover-meta-item">60分达标</span>
+            <span class="cover-meta-item">共27题</span>
+        </div>
         <div class="student-form">
             <div class="form-field">
                 <label for="studentName">姓名</label>
@@ -485,18 +726,18 @@
                 <input id="studentAge" type="number" min="1" max="120" placeholder="请输入年龄">
             </div>
             <div class="field-full entry-actions">
-                <button type="button" id="enterExamBtn">🚀 进入考试</button>
+        <button type="button" id="enterExamBtn">进入考试</button>
                 <div id="entryTip" class="entry-tip"></div>
             </div>
         </div>
     </div>
 
     <div id="examSection">
-    <div class="paper-card">
+    <div class="paper-card exam-header glass-glow">
         <h1>🤖 与AI同行 · 入门水平测试卷</h1>
-        <div class="sub">📝 测一测你对AI的“人设”了解多少？ 满分100分，60分就算拿到AI同行资格证~</div>
-        <div><span class="badge">✨ 单选10题×3分</span> <span class="badge">📚 多选5题×6分</span> <span class="badge">⚡ 判断10题×3分</span> <span class="badge">🎭 情景选择2题×5分</span></div>
-        <div class="mission-text">这是AI时代的个人战略·探索营的探索任务。</div>
+        <div class="sub">AI时代的个人战略·探索营<br>📝 测一测你对AI的知识了解多少？<span class="score-line">满分100分，60分就算拿到AI同行资格证~</span></div>
+        <div class="badge-row"><span class="badge">✨ 单选10题×3分</span> <span class="badge">📚 多选5题×6分</span> <span class="badge">⚡ 判断10题×3分</span> <span class="badge">🎭 情景选择2题×5分</span></div>
+
         <div id="studentInfo" class="student-info"></div>
     </div>
 
@@ -504,91 +745,112 @@
         <!-- 试卷内容会由js动态生成，方便维护和解析 -->
     </form>
 
+    <div class="quiz-toolbar">
+        <div class="progress-head">
+            <span>答题进度</span>
+            <span id="progressText">0 / 27 已完成</span>
+        </div>
+        <div class="progress-track">
+            <div id="progressFill" class="progress-fill"></div>
+        </div>
+    </div>
+
     <div class="action-bar">
-        <button type="button" id="submitBtn">🌟 交卷！看分数 🌟</button>
-        <button type="button" id="resetBtn" class="warning">🔄 重新答题</button>
-        <button type="button" id="toggleExplainBtn" class="secondary">📖 展开/收起所有解析</button>
+        <button type="button" id="submitBtn">交卷看分数</button>
+        <button type="button" id="resetBtn" class="warning">重新答题</button>
+        <button type="button" id="toggleExplainBtn" class="secondary">展开/收起所有解析</button>
     </div>
 
     <footer>💡 每题都会给详细解析，做完可随时查看，AI时代一起成长~</footer>
     </div>
 
     <div id="resultSection" class="result-page">
-        <div class="paper-card result-card">
+        <div class="paper-card result-card glass-glow">
             <h1 class="result-title">🏁 交卷结果</h1>
             <div class="sub result-sub">《AI时代的个人战略》·探索营 · 探索任务成绩页</div>
            
             <div id="resultStudentInfo" class="result-meta"></div>
             <div id="scoreDisplay" class="score-area"></div>
             <div id="rankDisplay" class="rank-area"></div>
+            <div id="resultStats" class="result-stats"></div>
             <div id="commentDisplay" class="comment"></div>
             <div id="resultTipBar" class="result-tip-bar"></div>
             <div class="action-bar">
-                <button type="button" id="viewExplainBtn" class="secondary">📖 查看全部解析</button>
-                <button type="button" id="retryFromResultBtn" class="warning">🔄 挑战重新答题</button>
+                <button type="button" id="viewExplainBtn" class="secondary">查看全部解析</button>
+                <button type="button" id="retryFromResultBtn" class="warning">挑战重新答题</button>
             </div>
         </div>
     </div>
 </div>
 
 <script>
-    // ---------- 题库顶层设计（按照基础知识、伦理、协作、应用场景四大维度）----------
-    // 单选题 (10道) 每题3分
+    // ---------- 新版题库（27道，通俗表达，每个选项单独详细解析）----------
+    // 单选题（10道，每题3分）
     const singleChoice = [
-        { text: "关于AI（人工智能对话模型），以下哪个描述最准确？", options: ["A. 它是一个无所不知的超人类大脑", "B. 它是一个基于大量文字学习、会生成回答但也会出错的工具", "C. 它是一个永远不会犯错的搜索引擎", "D. 它是一个拥有情感和意识的朋友"], correct: "B", explanation: "✅ AI本质是语言模型，通过概率生成文字，不是全知全能，也没有意识。它会犯错，也会『一本正经胡说八道』。把它当聪明的助手就好。" },
-        { text: "AI最擅长以下哪一类任务？", options: ["A. 精确计算13456 × 87654", "B. 帮你把一段啰嗦的话改得简洁有条理", "C. 实时告诉你今天下午3点的股票价格", "D. 记住你去年和它聊的私密话题"], correct: "B", explanation: "✅ AI对文字处理、润色、总结、头脑风暴非常在行。但数学容易翻车，没有实时联网（默认）就不懂即时信息，也不具备长期记忆。" },
-        { text: "下面哪件事是AI做不了，必须由人来负责的？", options: ["A. 写一封离职邮件的初稿", "B. 整理会议记录要点", "C. 为自己的行为承担后果和责任", "D. 生成10个短视频标题"], correct: "C", explanation: "✅ AI只是工具，没有自主意识和法律责任能力。任何重要决定、后果、责任都必须由人来扛。AI可以建议，但最终『锅』得自己背。" },
-        { text: "当AI以非常自信的语气给出具体数据（例如某法律条文），你应该：", options: ["A. 完全相信，因为AI不会骗人", "B. 直接复制使用", "C. 保持怀疑，自己搜索或核实一下", "D. 再也不使用AI了"], correct: "C", explanation: "✅ AI有『幻觉』特性，越自信越可能瞎编。事实类信息一定要交叉验证，尤其法律、医疗、新闻等领域。小心驶得万年船~" },
-        { text: "和AI高效合作，最佳态度是？", options: ["A. 让AI全权代理我所有工作", "B. 把AI当权威，它说什么我做什么", "C. 把AI当成实习生：让它出初稿、提建议，我来审核和做最终判断", "D. 完全不用AI，怕它出错"], correct: "C", explanation: "✅ 人机协作最优解：AI负责生成草稿、梳理思路，人类负责把关、修改、决策。既省力又安全，就像有个小助理。" },
-        { text: "以下哪个问题，最适合交给AI处理？", options: ["A. 明天彩票中奖号码是多少", "B. 帮我写一段道歉短信的草稿，要诚恳一点", "C. 我的好朋友现在心里在想什么", "D. 我下个月会不会生病"], correct: "B", explanation: "✅ AI擅长文字生成、润色。它不会算命、读心、预测未来。写草稿、整理点子才是它的舒适区。" },
-        { text: "关于AI的『记忆』，以下哪项正确？", options: ["A. AI会永久记住所有用户的对话", "B. 当前对话关闭后，AI通常不记得之前的交流（除非开启记忆功能且明确说明）", "C. AI会把你的隐私到处传播", "D. AI能记住三年前你和它聊的具体内容"], correct: "B", explanation: "✅ 标准对话模式下，AI没有长期记忆。每次聊天基本是『重新开始』。不用担心它记你黑历史，但也要注意不要上传敏感隐私。" },
-        { text: "如果你想让AI帮你规划周末出行，怎样提问效果最好？", options: ["A. 『给我一个好玩的计划』", "B. 『我周末想去杭州玩2天，预算1500，喜欢古镇和美食，请给我具体行程建议』", "C. 『你自己看着办』", "D. 『告诉我哪里最便宜』"], correct: "B", explanation: "✅ 越具体、越清晰的指令，AI回答质量越高。给它背景、预算、喜好，它才能好好发挥。" },
-        { text: "AI能不能完全替代人与人之间的情感交流？", options: ["A. 能，AI共情能力比人强", "B. 不能，AI没有真实情感体验，无法替代真实人际连接", "C. 再过两年就能了", "D. 完全可以，AI已经是完美朋友"], correct: "B", explanation: "✅ AI可以模拟安慰和鼓励，但终究没有心跳和真实情感。重要的关系还是要靠真人来经营~" },
-        { text: "以下哪个说法正确描述了AI的『局限性』？", options: ["A. AI永远正确，从不犯错", "B. AI擅长逻辑推理，比数学家还牛", "C. AI可能会生成虚假但看起来合理的答案（幻觉）", "D. AI能100%取代所有工作"], correct: "C", explanation: "✅ 『幻觉』是AI的经典bug——它会编造出看似权威的假内容。所以重要信息必须复核。记住，AI不是真理机。" }
+        { text: "以下哪个不是目前市面上常见的AI对话工具？", options: ["A. 豆包", "B. 文心一言", "C. PS软件", "D. Kimi"], correct: "C", optionExplan: ["✅ 豆包是字节跳动开发的，目前最流行的AI对话工具之一。", "✅ 文心一言是百度推出的中文AI大模型，很常见。", "❌ Photoshop是图像处理软件，用来修图P图，不是AI对话工具。", "✅ Kimi是月之暗面公司推出的AI助手，支持长文本。"] },
+        { text: "关于AI（人工智能对话工具），以下哪个描述最准确？", options: ["A. 它是一个无所不知的超人类大脑", "B. 它是一个基于大量文字学习、会生成回答但也会出错的工具", "C. 它是一个永远不会出错的工具", "D. 它是一个拥有情感和意识的朋友"], correct: "B", optionExplan: ["❌ AI看起来知道很多，但它不是全知全能，会编造不存在的东西。", "✅ AI通过学习海量文字来生成回答，很强大但也会出错，这是最准确的描述。", "❌ AI经常犯错，尤其会『一本正经胡说八道』，绝不可能永不犯错。", "❌ AI能模拟关心，但没有真实情感和意识，别把它当真人朋友。"] },
+        { text: "AI最擅长以下哪一类任务？", options: ["A. 精确计算13456 × 87654", "B. 帮你把一段啰嗦的话改得简洁有条理", "C. 实时告诉你今天下午3点的股票价格", "D. 记住你去年和它聊的私密话题"], correct: "B", optionExplan: ["❌ AI数学不靠谱，算大数经常翻车，要用计算器。", "✅ AI最擅长文字处理：润色、总结、改写，这是它的核心能力。", "❌ 默认AI不知道实时信息，不知道现在几点、股票多少。", "❌ AI没有长期记忆，关掉窗口它就忘了，别指望它记你黑历史。"] },
+        { text: "当AI给出一个明显错误的答案时，最可能的原因是：", options: ["A. 它在故意骗你，测试你的判断力", "B. 它学过的资料里本来就有错误，或者它在『猜』答案的时候猜偏了", "C. 它的服务器被人黑了", "D. 它心情不好，不想好好回答"], correct: "B", optionExplan: ["❌ AI没有『故意』的概念，它没有恶意，不会骗你玩。", "✅ 正确。AI的错误来自它学过的资料有误，或者生成时概率『猜』偏了。", "❌ 服务器被黑是极小概率事件，99.99%的错误是AI本身的问题。", "❌ AI没有心情，它不会累也不会闹情绪，别把它当人看。"] },
+        { text: "当AI以非常自信的语气给出具体数据（比如某法律条文），你应该：", options: ["A. 完全相信，因为AI不会骗人", "B. 直接复制使用", "C. 保持怀疑，自己搜索或核实一下", "D. 再也不使用AI了"], correct: "C", optionExplan: ["❌ AI会『幻觉』，越自信越可能瞎编，千万别全信。", "❌ 直接复制风险很大，万一编错了就尴尬了。", "✅ 正确做法：保持怀疑，用百度或权威来源核实一下。", "❌ 因噎废食没必要，AI是好工具，学会验证就好。"] },
+        { text: "和AI高效合作，最佳态度是？", options: ["A. 让AI全权代理我所有工作", "B. 把AI当权威，它说什么我做什么", "C. 把AI当成助手：让它出初稿，我来审核", "D. 完全不用AI，怕它出错"], correct: "C", optionExplan: ["❌ AI不能替你做所有事，尤其不能替你做决定。", "❌ AI不是权威，它的话只能当参考，不能当圣旨。", "✅ 最佳姿势：AI出活，人把关。就像带实习生一样。", "❌ 害怕犯错而不用，会错过很多效率提升的机会。"] },
+        { text: "以下哪个产品/服务用到了人工智能技术？", options: ["A. 今日头条的个性化推荐", "B. 网易云音乐的每日推荐歌单", "C. 高德地图的实时路况规划", "D. 以上全都是"], correct: "D", optionExplan: ["✅ 今日头条用AI算法推荐你感兴趣的内容。", "✅ 网易云音乐的推荐歌单也是AI在背后工作。", "✅ 高德地图的路况规划和最优路线用了AI技术。", "✅ 正确！AI早就藏在你的手机App里了，不只是聊天机器人。"] },
+        { text: "关于AI的『记忆』，以下哪项正确？", options: ["A. AI会永久记住所有用户的对话", "B. 当前对话关闭后，AI通常不记得之前的交流（除非开启记忆功能且明确说明）", "C. AI会把你的隐私到处传播", "D. AI能记住三年前你和它聊的具体内容"], correct: "B", optionExplan: ["❌ AI不会永久记住，每次对话基本都是重新开始。", "✅ 正确。关闭窗口就忘了，除非特别开启了记忆功能。", "❌ AI不会主动传播隐私，但建议不要上传敏感信息。", "❌ 三年前的内容AI绝对不记得，它连昨天的事都不知道。"] },
+        { text: "以下哪个说法最能体现AI工具和百度搜索的本质区别？", options: ["A. AI收费，百度搜索免费", "B. AI是自己写出新内容，百度搜索是把网上已有的内容找出来", "C. AI只能在手机上用，百度搜索只能在电脑上用", "D. AI回答更快"], correct: "B", optionExplan: ["❌ 收费免费不是本质区别，很多AI也免费。", "✅ 核心区别：AI『创作』新内容，百度『查找』已有内容。", "❌ 两者都能在手机和电脑上用，不是区别。", "❌ 速度不是本质区别，而且不一定谁更快。"] },
+        { text: "以下哪个说法正确描述了AI的『局限性』？", options: ["A. AI永远正确，从不犯错", "B. AI擅长逻辑推理，比数学家还牛", "C. AI可能会生成虚假但看起来合理的答案（俗称『一本正经胡说八道』）", "D. AI能100%取代所有工作"], correct: "C", optionExplan: ["❌ AI经常犯错，尤其会『幻觉』，绝不永远正确。", "❌ AI逻辑推理能力一般，数学题经常算错。", "✅ 正确。『AI幻觉』就是一本正经地胡说八道，编得像真的。", "❌ AI是工具，很多工作（尤其需要人情味和责任的）取代不了。"] }
     ];
 
-    // 多选题 (5道) 每题6分，全对得分，少选/多选不得分
+    // 多选题（5道，每题6分，全对得分）
     const multiChoice = [
-        { text: "下面哪些事情，AI目前可以做得不错？（选3个）", options: ["A. 撰写邮件的初稿", "B. 帮你归纳长篇文档的要点", "C. 替你做人生重大抉择（辞职、结婚）", "D. 头脑风暴创意方案"], correct: ["A","B","D"], explanation: "✅ AI擅长文字处理、总结、创意启发。但重大人生决策涉及个人价值观和后果，必须人类自己拍板，AI只能辅助分析。" },
-        { text: "哪些情况说明你对AI的回答需要格外警惕？（选2个）", options: ["A. AI以非常自信的口吻给出冷门数据或法律条文", "B. AI回答得很快，看起来很专业", "C. AI主动说『我不确定，请核实』", "D. AI的回答跟你预期不太一样"], correct: ["A","B"], explanation: "✅ 越自信具体的冷门信息越可能是『幻觉』。AI说『不确定』反而是诚实的好信号。速度不是问题，但缺乏出处就要留心。" },
-        { text: "和AI对话时，哪些方法能让它更好用？（选3个）", options: ["A. 把问题描述得清晰具体", "B. 要求它『举个例子』来细化", "C. 问得越模糊越好，让AI自由发挥", "D. 让AI扮演特定角色（如资深财务顾问）"], correct: ["A","B","D"], explanation: "✅ 清晰+角色扮演+举例是黄金三招。模糊提问只会得到模糊答案，AI可不是你肚里的蛔虫~" },
-        { text: "与AI相比，人类独有的优势包括？（选3个）", options: ["A. 承担后果和伦理责任", "B. 做最终的价值判断", "C. 一秒计算几百万次", "D. 理解自己真正想要什么并为此负责"], correct: ["A","B","D"], explanation: "✅ 责任感、价值判断、自我意识是人类核心领地。AI算得快，但永远不会『在乎』结果。" },
-        { text: "关于AI的正确认知，以下哪些说法是对的？（选3个）", options: ["A. AI可能编造看起来像真的假信息", "B. 同一个问题问两次，AI可能给出不同回答", "C. AI会永远记住你和它的每一句对话", "D. 默认情况下AI不知道此时此刻的实时天气"], correct: ["A","B","D"], explanation: "✅ AI具有随机性，答案可能不同。幻觉真实存在。默认没联网所以不知实时信息。记忆也是短时的，别指望它记你生日。" }
+        { text: "除了对话聊天，现在的AI还能帮你做以下哪些事？", options: ["A. 根据文字描述生成图片", "B. 根据图片生成文字描述", "C. 生成一段逼真的视频", "D. 帮你吃掉你不喜欢吃的菜"], correct: ["A","B","C"], optionExplan: ["✅ 可以！比如Midjourney、文心一格等。", "✅ 可以！AI看图说话已经很成熟。", "✅ 可以！Sora等模型已能生成视频。", "❌ 这是物理世界的事，AI做不到，还得你自己吃。"] },
+        { text: "哪些情况说明你对AI的回答需要格外警惕？", options: ["A. AI以非常自信的口吻给出冷门数据或法律条文", "B. AI回答得很快，看起来很专业", "C. AI主动说『我不确定，请核实』", "D. AI的回答跟你预期不太一样"], correct: ["A","B"], optionExplan: ["✅ 越自信具体的冷门信息越可能是『幻觉』。", "✅ 回答快且专业感强，容易让人放松警惕，反而要小心。", "❌ 主动说『不确定』反而是诚实的好信号，不用太担心。", "❌ 预期不一样不一定是错，可能是你没想到的角度。"] },
+        { text: "和AI对话时，哪些方法能让它回答得更好？", options: ["A. 把问题描述得清晰具体", "B. 要求它『举个例子』来细化", "C. 问得越模糊越好，让AI自由发挥", "D. 让AI扮演特定角色（比如『你是一个资深HR』）"], correct: ["A","B","D"], optionExplan: ["✅ 清晰具体，AI才知道你想要什么。", "✅ 要求举例能让回答更落地、更具体。", "❌ 模糊提问只能得到模糊答案，AI不是你肚里的蛔虫。", "✅ 角色扮演能切换视角，回答质量更高。"] },
+        { text: "与AI相比，人类独有的优势包括？", options: ["A. 承担后果和伦理责任", "B. 做最终的价值判断", "C. 一秒计算几百万次", "D. 理解自己真正想要什么并为此负责"], correct: ["A","B","D"], optionExplan: ["✅ AI不会负责，最终责任必须人来扛。", "✅ 对错、好坏、该不该，最终判断只能人来做。", "❌ 计算速度是AI的优势，不是人类的。", "✅ 自我认知、人生目标，只有人类自己清楚。"] },
+        { text: "以下哪些做法存在隐私或安全风险？", options: ["A. 把公司内部机密文件复制给AI让它总结", "B. 把自己的身份证照片发给AI让它帮忙填表", "C. 让AI帮你写一封正常的请假邮件", "D. 让AI帮你整理公开的旅游攻略"], correct: ["A","B"], optionExplan: ["✅ 公司机密给AI可能泄露，风险很大。", "✅ 身份证照片是敏感信息，不要发给任何AI。", "❌ 写请假邮件是正常使用，没有风险。", "❌ 整理公开旅游攻略，完全没问题。"] }
     ];
 
-    // 判断题 (10道) 每题3分
+    // 判断题（10道，每题3分）
     const trueFalse = [
-        { text: "AI可以独立思考，就像人类一样拥有自我意识。", correct: false, explanation: "❌ 错误。AI没有意识、情感和独立思考能力，它是通过概率模型生成文字，看起来像思考，实则无自我。" },
-        { text: "用AI写的周报或方案，最好自己再检查修改一遍再使用。", correct: true, explanation: "✅ 正确！AI产出常常有瑕疵，需要人类审核优化。人机协作=AI初稿+人类质检。" },
-        { text: "AI能够替我做最终决定，比如换工作或者分手。", correct: false, explanation: "❌ 不可以。最终决策必须由你自己负责，AI只能提供参考意见，人生遥控器不能交给算法。" },
-        { text: "与AI沟通时，说得越清楚明确，它给出的答案越有用。", correct: true, explanation: "✅ 正确。指令清晰，答案质量倍增。就像点菜要说『少辣多醋』，不是随便来一份。" },
-        { text: "AI和搜索引擎（百度/谷歌）是一回事，都能实时检索最新网页。", correct: false, explanation: "❌ 不同。AI模型生成文字，不主动上网（除非开启联网功能）。搜索引擎是检索索引库。两者搭档才更香。" },
-        { text: "AI永远不累，可以7x24小时帮你干活。", correct: true, explanation: "✅ 对！AI不会疲劳、不用睡觉，这是它的优势。但它仍然会出错，不能完全替代人工复核。" },
-        { text: "让AI『举个例子』，可以让它的回答更具体、更容易理解。", correct: true, explanation: "✅ 正确。追问例子能大幅提升回答质量，让AI摆脱空话。" },
-        { text: "AI可以完美代替朋友和家人，提供真实的情感支持。", correct: false, explanation: "❌ 错误。AI可以安慰人，但没有真情实感。真实的人际温度无可替代，多和真人聊聊天~" },
-        { text: "AI只是工具，用得好能提高效率，用得不好可能产生错误信息。", correct: true, explanation: "✅ 真理！AI就像一把瑞士军刀，用对地方是真香，盲目迷信会翻车。" },
-        { text: "只要会打字就能100%用好AI，不需要任何判断力。", correct: false, explanation: "❌ 会打字是基础，但更需要批判性思维、提问能力和结果判断力。『会问问题』才是核心技能。" }
+        { text: "如果一个AI能在对话中让人类无法分辨它是人还是机器，就说明它已经拥有了和人类一样的意识和情感。", correct: false, explanation: "❌ 图灵测试只测『像不像人』，不代表真有意识。AI可以装得像，但没有心跳。", optionExplan: ["✅ 正确：这个说法是错的。行为像人不等于有意识。","❌ 错误：这个说法是错的，别被外表骗了。"] },
+        { text: "扫地机器人能自动规划路线、避开障碍物，这说明它用到了人工智能技术。", correct: true, explanation: "✅ 没错！扫地机器人用了传感器、路径规划、机器学习，是典型的弱AI应用。", optionExplan: ["✅ 正确：它确实是AI技术的一种，只是没那么『聪明』。","❌ 错误：这个说法其实是正确的。"] },
+        { text: "用AI写的周报或方案，最好自己再检查修改一遍再使用。", correct: true, explanation: "✅ 必须的！AI写的东西可能有错、不贴合实际，人审核是必要步骤。", optionExplan: ["✅ 正确：人机协作，AI出活，人把关。","❌ 错误：这个说法是正确的，不要偷懒不检查。"] },
+        { text: "AI能够替我做最终决定，比如换工作或者分手。", correct: false, explanation: "❌ 绝对不行！人生大事必须自己拍板，AI只能给参考意见。", optionExplan: ["✅ 正确：这个说法是错的，决定权在你手里。","❌ 错误：这个说法不对，AI不能替你负责。"] },
+        { text: "与AI沟通时，说得越清楚明确，它给出的答案越有用。", correct: true, explanation: "✅ 真理！问得越具体，AI答得越靠谱。模糊提问只会得到模糊答案。", optionExplan: ["✅ 正确：清晰指令是好答案的前提。","❌ 错误：这个说法非常正确。"] },
+        { text: "AI永远不累，可以7x24小时帮你干活。", correct: true, explanation: "✅ 对！AI不需要睡觉吃饭，这是它的核心优势之一。", optionExplan: ["✅ 正确：AI不会累，但要注意它还是会犯错。","❌ 错误：这个说法是正确的。"] },
+        { text: "让AI『举个例子』，可以让它的回答更具体、更容易理解。", correct: true, explanation: "✅ 非常有效！追问例子是让AI脱离空话的绝招。", optionExplan: ["✅ 正确：举例能让回答更落地。","❌ 错误：这个说法非常正确。"] },
+        { text: "AI本身是客观中立的，不会带有任何偏见。", correct: false, explanation: "❌ AI会学习训练资料里的偏见，资料有偏见，AI就有偏见。", optionExplan: ["✅ 正确：这个说法是错的，AI会继承人类的偏见。","❌ 错误：这个说法不对，AI不是中立机器。"] },
+        { text: "只要会打字就能100%用好AI，不需要任何判断力。", correct: false, explanation: "❌ 会打字只是基础，真正重要的是会提问、会判断、会核实。", optionExplan: ["✅ 正确：这个说法是错的，需要判断力。","❌ 错误：这个说法不对，用好AI需要脑子。"] },
+        { text: "你问AI『三国演义里关羽用的是什么武器？』，AI回答『青龙偃月刀』。然后你问『请给出这句话的出处』，AI编造了一个不存在的章节名。这种现象叫做『AI幻觉』。", correct: true, explanation: "✅ 完全正确！AI一本正经地胡说八道，就是『幻觉』。", optionExplan: ["✅ 正确：这就是AI幻觉的标准例子。","❌ 错误：这个说法是正确的。"] }
     ];
 
-    // 情景选择题 (2道) 每题5分，单选
+    // 情景题（2道，每题5分）
     const scenarioChoice = [
-        { text: "【情景·工作】你让AI帮你写一封给客户的道歉邮件。以下哪种做法最稳妥？", options: ["A. 直接复制AI生成的邮件原文发送，不改一个字", "B. 让AI写完后，自己根据实际情况修改措辞、核实细节再发送", "C. 完全自己写，不用AI", "D. 让AI代替你跟客户打电话道歉"], correct: "B", explanation: "✅ AI写的邮件通常通顺但可能遗漏关键业务细节。最佳实践：让AI生成初稿，你润色调整，既省时又避免翻车。" },
-        { text: "【情景·学习】你想快速了解『人工智能发展史』，如何用AI最高效且可靠？", options: ["A. 问AI：『给我人工智能发展史』，直接相信全部内容", "B. 问AI要一个发展脉络大纲，然后对照可信资料（书籍/百科）核实关键节点", "C. 让AI自己写一本500页的书", "D. 再也不碰AI，怕被骗"], correct: "B", explanation: "✅ 正确姿势：让AI生成框架或时间线，再用可靠来源交叉验证。AI能帮你搭骨架，但事实准确性需要你双保险。" }
+        { text: "【情景·安全】你突然接到家人打来的视频电话，画面里是家人的脸和声音，说在外地出事了急需转账5万元。以下哪种做法最稳妥？", options: ["A. 看到是家人的脸，马上转账", "B. 先挂断，用平时常用的电话回拨过去确认", "C. 视频里的人说得那么急，先转一半过去看看", "D. 让视频里的人说出只有你们知道的暗号或私事来验证"], correct: "B", optionExplan: ["❌ 太危险！AI换脸技术已经能实时伪造视频，不能只看画面。", "✅ 最佳做法！通过另一个渠道确认最安全。", "❌ 转一半也是损失，骗子不会嫌少。", "❌ 好方法但不如B可靠，因为AI换脸可能已经掌握了部分信息。"] },
+        { text: "【情景·信息】你在网上看到一篇爆炸性新闻，写得非常详细专业，看起来很可信。以下哪种做法最合理？", options: ["A. 马上转发到朋友圈", "B. 先看看有没有官方媒体或权威来源报道同样的事", "C. AI不可能写新闻，所以一定是真人写的", "D. 只要文章写得长，就一定是真的"], correct: "B", optionExplan: ["❌ 不要急着转，假新闻传播很快。", "✅ 正确做法：核实权威来源再判断。", "❌ AI完全可以写新闻，甚至写得比真人还专业。", "❌ 长度和真实性没有关系，AI能写几万字。"] }
     ];
 
-    function renderOptionAnalysis(options, correctValues) {
+    function renderOptionAnalysis(options, correctValues, optionExplan = []) {
         const correctSet = new Set(Array.isArray(correctValues) ? correctValues : [correctValues]);
+        const stripLeadingMark = (text = "") => String(text).replace(/^[✅❌]\s*/, "");
         return options.map(opt => {
             const letter = opt.charAt(0);
             const isCorrect = correctSet.has(letter);
-            const reason = isCorrect
+            const reason = optionExplan.length
+                ? stripLeadingMark(optionExplan[options.indexOf(opt)])
+                : (isCorrect
                 ? "该选项符合题干要求，是本题应选择的关键点。"
-                : "该选项与题干核心不一致，或带有常见误区，不应选择。";
+                : "该选项与题干核心不一致，或带有常见误区，不应选择。");
             return `<div class="option-analysis">${isCorrect ? '✅' : '❌'} <strong>${opt}</strong><br>${reason}</div>`;
         }).join('');
     }
 
-    function renderTfOptionAnalysis(correctVal) {
+    function renderTfOptionAnalysis(correctVal, optionExplan = []) {
+        const stripLeadingMark = (text = "") => String(text).replace(/^[✅❌]\s*/, "");
+        if(optionExplan.length === 2) {
+            return `
+                <div class="option-analysis">${correctVal ? '✅' : '❌'} <strong>正确</strong><br>${stripLeadingMark(optionExplan[0])}</div>
+                <div class="option-analysis">${!correctVal ? '✅' : '❌'} <strong>错误</strong><br>${stripLeadingMark(optionExplan[1])}</div>
+            `;
+        }
         const trueReason = correctVal
             ? "本题判断为“正确”，因为该说法符合AI的真实能力与边界。"
             : "本题判断为“错误”，该说法不符合AI的真实能力与边界。";
@@ -596,15 +858,15 @@
             ? "本题判断为“错误”是正确选项，因为题干说法存在明显偏差。"
             : "本题不应选“错误”，因为题干描述本身是成立的。";
         return `
-            <div class="option-analysis">${correctVal ? '✅' : '❌'} <strong>✅ 正确</strong><br>${trueReason}</div>
-            <div class="option-analysis">${!correctVal ? '✅' : '❌'} <strong>❌ 错误</strong><br>${falseReason}</div>
+            <div class="option-analysis">${correctVal ? '✅' : '❌'} <strong>正确</strong><br>${trueReason}</div>
+            <div class="option-analysis">${!correctVal ? '✅' : '❌'} <strong>错误</strong><br>${falseReason}</div>
         `;
     }
 
     function renderExplanationBlock(answerText, summaryText, optionAnalysisHtml) {
         return `
             <div class="exp-title">📖 详细解析</div>
-            <div class="answer-line">✅ 正确答案：${answerText}</div>
+            <div class="answer-line">正确答案：${answerText}</div>
             <div class="exp-main">${summaryText}</div>
             ${optionAnalysisHtml}
         `;
@@ -612,19 +874,19 @@
 
     // 构建试卷HTML
     function buildForm() {
-        let html = `<div class="paper-card"><div class="section-title">📌 一、单选题（每题3分，共30分）</div>`;
+        let html = `<div class="paper-card glass-glow"><div class="section-title">📌 一、单选题（每题3分，共30分）</div>`;
         singleChoice.forEach((q, idx) => {
             html += `
                 <div class="question-item" data-qtype="single" data-idx="${idx}" data-correct="${q.correct}">
-                    <div class="question-text"><span class="q-type">单选</span> ${idx+1}. ${q.text}</div>
+                    <div class="question-text"><span class="q-type q-type-single">单选</span> ${idx+1}. ${q.text}</div>
                     <div class="options">
                         ${q.options.map(opt => `<div class="option"><label class="option-item"><input type="radio" name="single_${idx}" value="${opt.charAt(0)}"><span>${opt}</span></label></div>`).join('')}
                     </div>
                     <div class="explanation" id="exp_single_${idx}">
                         ${renderExplanationBlock(
                             q.correct,
-                            q.explanation,
-                            renderOptionAnalysis(q.options, q.correct)
+                            q.explanation || "请结合下方选项逐条理解本题。",
+                            renderOptionAnalysis(q.options, q.correct, q.optionExplan)
                         )}
                     </div>
                 </div>
@@ -635,15 +897,15 @@
             const correctStr = JSON.stringify(q.correct.sort());
             html += `
                 <div class="question-item" data-qtype="multi" data-idx="${idx}" data-correct='${JSON.stringify(q.correct)}'>
-                    <div class="question-text"><span class="q-type">多选</span> ${idx+1}. ${q.text}</div>
+                    <div class="question-text"><span class="q-type q-type-multi">多选</span> ${idx+1}. ${q.text}</div>
                     <div class="options">
                         ${q.options.map(opt => `<div class="option"><label class="option-item"><input type="checkbox" name="multi_${idx}" value="${opt.charAt(0)}"><span>${opt}</span></label></div>`).join('')}
                     </div>
                     <div class="explanation" id="exp_multi_${idx}">
                         ${renderExplanationBlock(
                             q.correct.join("、"),
-                            q.explanation,
-                            renderOptionAnalysis(q.options, q.correct)
+                            q.explanation || "本题为多选题，请重点看每个选项为什么该选或不该选。",
+                            renderOptionAnalysis(q.options, q.correct, q.optionExplan)
                         )}
                     </div>
                 </div>
@@ -653,16 +915,16 @@
         trueFalse.forEach((q, idx) => {
             html += `
                 <div class="question-item" data-qtype="tf" data-idx="${idx}" data-correct="${q.correct}">
-                    <div class="question-text"><span class="q-type">判断</span> ${idx+1}. ${q.text}</div>
+                    <div class="question-text"><span class="q-type q-type-tf">判断</span> ${idx+1}. ${q.text}</div>
                     <div class="options">
-                        <div class="option"><label class="option-item"><input type="radio" name="tf_${idx}" value="true"><span>✅ 正确</span></label></div>
-                        <div class="option"><label class="option-item"><input type="radio" name="tf_${idx}" value="false"><span>❌ 错误</span></label></div>
+                        <div class="option"><label class="option-item"><input type="radio" name="tf_${idx}" value="true"><span>正确</span></label></div>
+                        <div class="option"><label class="option-item"><input type="radio" name="tf_${idx}" value="false"><span>错误</span></label></div>
                     </div>
                     <div class="explanation" id="exp_tf_${idx}">
                         ${renderExplanationBlock(
-                            q.correct ? "✅ 正确" : "❌ 错误",
+                            q.correct ? "正确" : "错误",
                             q.explanation,
-                            renderTfOptionAnalysis(q.correct)
+                            renderTfOptionAnalysis(q.correct, q.optionExplan)
                         )}
                     </div>
                 </div>
@@ -672,15 +934,15 @@
         scenarioChoice.forEach((q, idx) => {
             html += `
                 <div class="question-item" data-qtype="scenario" data-idx="${idx}" data-correct="${q.correct}">
-                    <div class="question-text"><span class="q-type">情景</span> ${idx+1}. ${q.text}</div>
+                    <div class="question-text"><span class="q-type q-type-scenario">情景</span> ${idx+1}. ${q.text}</div>
                     <div class="options">
                         ${q.options.map(opt => `<div class="option"><label class="option-item"><input type="radio" name="scenario_${idx}" value="${opt.charAt(0)}"><span>${opt}</span></label></div>`).join('')}
                     </div>
                     <div class="explanation" id="exp_scenario_${idx}">
                         ${renderExplanationBlock(
                             q.correct,
-                            q.explanation,
-                            renderOptionAnalysis(q.options, q.correct)
+                            q.explanation || "请先判断最稳妥做法，再对照每个选项的风险点。",
+                            renderOptionAnalysis(q.options, q.correct, q.optionExplan)
                         )}
                     </div>
                 </div>
@@ -690,10 +952,85 @@
     }
 
     let latestWrongExplanationIds = [];
+    const TOTAL_QUESTIONS = singleChoice.length + multiChoice.length + trueFalse.length + scenarioChoice.length;
+
+    function getAnsweredCount() {
+        let answered = 0;
+        for(let i=0; i<singleChoice.length; i++) {
+            if(document.querySelector(`input[name="single_${i}"]:checked`)) answered++;
+        }
+        for(let i=0; i<multiChoice.length; i++) {
+            if(document.querySelector(`input[name="multi_${i}"]:checked`)) answered++;
+        }
+        for(let i=0; i<trueFalse.length; i++) {
+            if(document.querySelector(`input[name="tf_${i}"]:checked`)) answered++;
+        }
+        for(let i=0; i<scenarioChoice.length; i++) {
+            if(document.querySelector(`input[name="scenario_${i}"]:checked`)) answered++;
+        }
+        return answered;
+    }
+
+    function updateProgressUI() {
+        const answered = getAnsweredCount();
+        const progress = Math.round((answered / TOTAL_QUESTIONS) * 100);
+        document.getElementById('progressText').textContent = `${answered} / ${TOTAL_QUESTIONS} 已完成`;
+        document.getElementById('progressFill').style.width = `${progress}%`;
+    }
+
+    // 轻量音效：hover 与选择时的反馈音
+    let audioCtx = null;
+    let lastHoverToneAt = 0;
+    function getAudioCtx() {
+        if(!audioCtx) {
+            const Ctx = window.AudioContext || window.webkitAudioContext;
+            if(!Ctx) return null;
+            audioCtx = new Ctx();
+        }
+        return audioCtx;
+    }
+
+    function playUiTone(type = "hover") {
+        const ctx = getAudioCtx();
+        if(!ctx) return;
+        const now = Date.now();
+        if(type === "hover" && now - lastHoverToneAt < 90) return;
+        if(type === "hover") lastHoverToneAt = now;
+
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = "sine";
+        osc.frequency.value = type === "select" ? 720 : 520;
+        gain.gain.value = 0.0001;
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        const t = ctx.currentTime;
+        gain.gain.exponentialRampToValueAtTime(type === "select" ? 0.035 : 0.02, t + 0.01);
+        gain.gain.exponentialRampToValueAtTime(0.0001, t + (type === "select" ? 0.11 : 0.08));
+        osc.start(t);
+        osc.stop(t + (type === "select" ? 0.12 : 0.09));
+    }
+
+    function bindOptionAudioFeedback() {
+        const optionItems = document.querySelectorAll('.option-item');
+        optionItems.forEach(item => {
+            item.addEventListener('mouseenter', () => playUiTone("hover"));
+            item.addEventListener('click', () => playUiTone("select"));
+        });
+    }
 
     // 计算分数并展示结果
     function computeScore() {
+        const unansweredCount = TOTAL_QUESTIONS - getAnsweredCount();
+        if(unansweredCount > 0) {
+            const proceed = window.confirm(`还有 ${unansweredCount} 题未作答，确认现在交卷吗？`);
+            if(!proceed) return;
+        }
+
         let total = 0;
+        let correctCount = 0;
         latestWrongExplanationIds = [];
         const allQuestionItems = document.querySelectorAll('.question-item');
         allQuestionItems.forEach(item => item.classList.remove('wrong-answer'));
@@ -701,7 +1038,10 @@
         for(let i=0; i<singleChoice.length; i++) {
             const selected = document.querySelector(`input[name="single_${i}"]:checked`);
             const isCorrect = !!selected && selected.value === singleChoice[i].correct;
-            if(isCorrect) total += 3;
+            if(isCorrect) {
+                total += 3;
+                correctCount++;
+            }
             else {
                 latestWrongExplanationIds.push(`exp_single_${i}`);
                 document.querySelector(`.question-item[data-qtype="single"][data-idx="${i}"]`)?.classList.add('wrong-answer');
@@ -713,7 +1053,10 @@
             const selectedVals = Array.from(checkboxes).map(cb => cb.value).sort();
             const correctVals = multiChoice[i].correct.slice().sort();
             let isFullCorrect = (selectedVals.length === correctVals.length && selectedVals.every((v,idx) => v === correctVals[idx]));
-            if(isFullCorrect) total += 6;
+            if(isFullCorrect) {
+                total += 6;
+                correctCount++;
+            }
             else {
                 latestWrongExplanationIds.push(`exp_multi_${i}`);
                 document.querySelector(`.question-item[data-qtype="multi"][data-idx="${i}"]`)?.classList.add('wrong-answer');
@@ -723,7 +1066,10 @@
         for(let i=0; i<trueFalse.length; i++) {
             const selected = document.querySelector(`input[name="tf_${i}"]:checked`);
             const isCorrect = !!selected && ((selected.value === 'true') === trueFalse[i].correct);
-            if(isCorrect) total += 3;
+            if(isCorrect) {
+                total += 3;
+                correctCount++;
+            }
             else {
                 latestWrongExplanationIds.push(`exp_tf_${i}`);
                 document.querySelector(`.question-item[data-qtype="tf"][data-idx="${i}"]`)?.classList.add('wrong-answer');
@@ -733,7 +1079,10 @@
         for(let i=0; i<scenarioChoice.length; i++) {
             const selected = document.querySelector(`input[name="scenario_${i}"]:checked`);
             const isCorrect = !!selected && selected.value === scenarioChoice[i].correct;
-            if(isCorrect) total += 5;
+            if(isCorrect) {
+                total += 5;
+                correctCount++;
+            }
             else {
                 latestWrongExplanationIds.push(`exp_scenario_${i}`);
                 document.querySelector(`.question-item[data-qtype="scenario"][data-idx="${i}"]`)?.classList.add('wrong-answer');
@@ -763,12 +1112,16 @@
             rankName = "AI新手村冒险者";
             comment = "先给你一个掌声：愿意来做这份题，本身就比“围观但不行动”更厉害。分数暂时不理想没关系，这并不代表你不适合AI，通常只是还没掌握提问和判断的节奏。AI这件事最怕的不是“不会”，而是“以为自己会”。你现在正好处在最容易快速成长的阶段。建议你先做一件事：认真看完每道题解析，再做第二遍，你会明显感到“原来是这么回事”。接下来和AI对话时，记得多给背景、多给限制、多要例子；遇到关键事实先核验，别让自信语气骗过你。把今天当作升级起点，而不是分数终点。坚持几轮训练后，你会发现自己从“不会问”变成“问得准、改得快、用得稳”的高潜选手。";
         }
-        rank = `🎉 恭喜你，获得称号：<span class="rank-value">${rankName}</span>`;
+        rank = `恭喜你，获得称号：<span class="rank-value">${rankName}</span>`;
 
         const percent = total;
         document.getElementById('resultStudentInfo').textContent = document.getElementById('studentInfo').textContent;
-        document.getElementById('scoreDisplay').innerHTML = `🎯 你的本次得分：<span class="score-value">${percent}</span> 分（满分100分）`;
+        document.getElementById('scoreDisplay').innerHTML = `你的本次得分：<span class="score-value">${percent}</span> 分（满分100分）`;
         document.getElementById('rankDisplay').innerHTML = rank;
+        document.getElementById('resultStats').innerHTML = `
+            <span class="stat-chip correct">答对 ${correctCount} 题</span>
+            <span class="stat-chip wrong">答错 ${TOTAL_QUESTIONS - correctCount} 题</span>
+        `;
         const commentParagraphs = comment
             .split("。")
             .map(part => part.trim())
@@ -785,10 +1138,10 @@
         const resultTipBar = document.getElementById('resultTipBar');
         if(percent >= 60) {
             resultTipBar.className = "result-tip-bar pass";
-            resultTipBar.textContent = "✅ 已达标，太棒了！";
+            resultTipBar.textContent = "已达标，太棒了！";
         } else {
             resultTipBar.className = "result-tip-bar retry";
-            resultTipBar.textContent = "📚 继续加油，再来一次会更好！";
+            resultTipBar.textContent = "继续加油，再来一次会更好！";
         }
         document.getElementById('examSection').style.display = 'none';
         document.getElementById('resultSection').style.display = 'block';
@@ -835,6 +1188,7 @@
         allQuestionItems.forEach(item => item.classList.remove('wrong-answer'));
         document.getElementById('resultSection').style.display = 'none';
         latestWrongExplanationIds = [];
+        updateProgressUI();
     }
 
     // 从结果页查看解析（返回试卷并展开全部解析）
@@ -871,6 +1225,9 @@
     // 初始化事件绑定
     window.onload = () => {
         buildForm();
+        bindOptionAudioFeedback();
+        updateProgressUI();
+        document.getElementById('quizForm').addEventListener('change', updateProgressUI);
         document.getElementById('enterExamBtn').addEventListener('click', enterExam);
         document.getElementById('submitBtn').addEventListener('click', computeScore);
         document.getElementById('resetBtn').addEventListener('click', resetQuiz);
