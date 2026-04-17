@@ -84,6 +84,113 @@
             pointer-events: none;
         }
 
+        /* 使用「封面页.png」作为主视觉时：底图 + 叠加输入区 */
+        .cover-card.cover-visual-only {
+            padding: 0;
+            text-align: left;
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            overflow: visible;
+            max-width: 520px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cover-card.cover-visual-only::after {
+            display: none;
+        }
+
+        .cover-card.cover-visual-only .cover-brand-stack {
+            display: none;
+        }
+
+        .cover-art-wrap {
+            position: relative;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            line-height: 0;
+            box-shadow: 0 24px 46px -18px rgba(76, 29, 149, 0.26), 0 4px 12px rgba(76, 29, 149, 0.08);
+            border: 1px solid rgba(124, 58, 237, 0.2);
+        }
+
+        .cover-art-img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .cover-input-layer {
+            --cover-pad-x: 7%;
+            --cover-pad-b: 17%;
+            --cover-gap: 0.65rem;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 0 var(--cover-pad-x) var(--cover-pad-b);
+            pointer-events: none;
+        }
+
+        .cover-input-layer * {
+            pointer-events: auto;
+        }
+
+        .cover-card.cover-visual-only .student-form {
+            max-width: 46%;
+            margin: 0;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--cover-gap);
+            align-items: end;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cover-card.cover-visual-only .field-full {
+            grid-column: 1 / -1;
+        }
+
+        .cover-card.cover-visual-only .form-field label {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        .cover-card.cover-visual-only .form-field input {
+            background: rgba(255, 255, 255, 0.88);
+            border: 1px solid rgba(124, 58, 237, 0.35);
+            box-shadow: 0 6px 16px rgba(76, 29, 149, 0.12);
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .cover-card.cover-visual-only .form-field input::placeholder {
+            text-align: center;
+        }
+
+        .cover-card.cover-visual-only #enterExamBtn {
+            width: 52%;
+            min-width: 190px;
+            margin-top: 0.35rem;
+        }
+
+        .cover-card.cover-visual-only .entry-actions {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cover-card.cover-visual-only .entry-tip {
+            text-align: center;
+        }
+
         .brand-chip {
             display: inline-flex;
             align-items: center;
@@ -689,6 +796,20 @@
             .paper-card {
                 padding: 1rem;
             }
+            .cover-card.cover-visual-only {
+                max-width: 100%;
+            }
+            .cover-input-layer {
+                --cover-pad-x: 6%;
+                --cover-pad-b: 18%;
+            }
+            .cover-card.cover-visual-only #enterExamBtn {
+                width: 68%;
+                min-width: 0;
+            }
+            .cover-card.cover-visual-only .student-form {
+                max-width: 62%;
+            }
             #examSection {
                 padding-bottom: 135px;
             }
@@ -706,6 +827,10 @@
             .result-sub-break {
                 display: block;
                 margin-top: 0.2rem;
+            }
+            .exam-header h1 {
+                display: block;
+                text-align: center;
             }
             .exam-title-sep {
                 display: none;
@@ -728,28 +853,35 @@
 </head>
 <body>
 <div class="container">
-    <div id="coverSection" class="paper-card cover-card">
-        <div class="brand-chip">AI时代的个人战略 · 探索营</div>
-        <div class="cover-title">与AI同行</div>
-        <div class="cover-subtitle">入门考试</div>
-        <div class="cover-desc">这是一份课程探索任务测评，帮助你快速建立AI时代的基础认知、协作方法与安全判断力。</div>
-        <div class="cover-meta-row">
-            <span class="cover-meta-item">总分100分</span>
-            <span class="cover-meta-item">60分达标</span>
-            <span class="cover-meta-item">共27题</span>
+    <div id="coverSection" class="paper-card cover-card cover-visual-only">
+        <div class="cover-brand-stack">
+            <div class="brand-chip">AI时代的个人战略 · 探索营</div>
+            <div class="cover-title">与AI同行</div>
+            <div class="cover-subtitle">入门考试</div>
+            <div class="cover-desc">这是一份课程探索任务测评，帮助你快速建立AI时代的基础认知、协作方法与安全判断力。</div>
+            <div class="cover-meta-row">
+                <span class="cover-meta-item">总分100分</span>
+                <span class="cover-meta-item">60分达标</span>
+                <span class="cover-meta-item">共27题</span>
+            </div>
         </div>
-        <div class="student-form">
-            <div class="form-field">
-                <label for="studentName">姓名</label>
-                <input id="studentName" type="text" placeholder="请输入姓名">
-            </div>
-            <div class="form-field">
-                <label for="studentAge">年龄</label>
-                <input id="studentAge" type="number" min="1" max="120" placeholder="请输入年龄">
-            </div>
-            <div class="field-full entry-actions">
-        <button type="button" id="enterExamBtn">进入考试</button>
-                <div id="entryTip" class="entry-tip"></div>
+        <div class="cover-art-wrap glass-glow">
+            <img class="cover-art-img" src="封面页.png" alt="与AI同行 · 入门考试封面">
+            <div class="cover-input-layer">
+                <div class="student-form">
+                    <div class="form-field">
+                        <label for="studentName">姓名</label>
+                        <input id="studentName" type="text" placeholder="姓名" autocomplete="name" enterkeyhint="next" inputmode="text">
+                    </div>
+                    <div class="form-field">
+                        <label for="studentAge">年龄</label>
+                        <input id="studentAge" type="number" min="1" max="120" placeholder="年龄" enterkeyhint="done" inputmode="numeric">
+                    </div>
+                    <div class="field-full entry-actions">
+                        <button type="button" id="enterExamBtn">进入考试</button>
+                        <div id="entryTip" class="entry-tip"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -1117,23 +1249,24 @@
         let comment = "";
         if(total >= 95) {
             rankName = "AI星际领航官";
-            comment = "你这成绩已经不是“会用AI”，而是“能把AI安排得明明白白”了。你对AI的能力边界、协作方式和风险意识都非常在线，属于那种能一边让AI高效打工、一边防止它一本正经跑偏的高手。说你是“人机协作队长”一点都不夸张：提问有章法，判断有主见，关键时刻还会核实信息，稳得像给答案上了三道保险。接下来建议你挑战更高阶玩法：把AI当成你的多角色智囊团，比如让它先给框架、再给反方意见、最后给执行清单，你来做最终拍板。继续保持这种“敢用、会用、慎用”的节奏，你不只是跟上AI时代，你是在主动定义自己的效率上限。";
+            comment = "《道德经》说：'知人者智，自知者明。' 你这成绩已经不是“会用AI”，而是能把AI安排得明明白白。提问有章法，判断有主见，关键时刻还会核实信息，稳得像上了三道保险。继续保持这节奏，你不只是跟上AI时代，你是在定义自己的效率上限。";
         } else if(total >= 85) {
             rankName = "AI协作指挥官";
-            comment = "这份成绩说明你已经掌握了和AI合作的核心套路：会提需求、会看答案、会做判断。你不是把AI当“算命先生”，而是当“高效实习生”来用，这个思路非常专业。你已经具备了不错的风险意识，知道哪些信息要核实，哪些决策要自己负责，这一点在真实工作和学习里特别值钱。再往上冲一档的关键，是把提问进一步结构化：把背景、目标、限制条件和输出格式一次说清，AI的发挥会更稳定。也可以养成“二次追问”的习惯，比如让它补反例、补风险、补执行步骤。照这个状态继续练，你很快就会从“会用工具的人”升级成“会设计流程的人”，效率和质量都能一起上台阶。";
+            comment = "《孙子兵法》讲：'知己知彼，百战不殆。' 你已经掌握了和AI合作的核心套路，不是把AI当算命先生，而是当高效实习生来用。再往上冲的关键，是把提问再结构化一些，背景、目标、格式一次说清，AI的发挥会更稳。照这个状态继续，你很快就会从“会用工具”升级成“会设计流程”的人。";
         } else if(total >= 75) {
             rankName = "AI进阶探索家";
-            comment = "你已经明显过了“新手乱点按钮”阶段，进入了“知道怎么和AI配合”的进阶区间。你对基础概念、常见误区和实用场景有比较扎实的理解，说明你不是只会问一句“帮我写个XX”，而是开始思考“怎么问更好、怎么用更稳”。这非常棒。现在你最适合做的是把正确习惯固定下来：重要事实先核实、关键内容再润色、最终决策自己拍板。别小看这三步，它能让你避开大多数翻车现场。你还可以尝试给AI设定角色和风格，比如“你是课程教练，请给我分层建议”，回答质量会更上一层楼。继续保持这个节奏，你离“人机协作高手”只差几次高质量实战。";
+            comment = "《礼记》云：'教学相长也。' 你已经过了“新手乱点按钮”的阶段，开始思考怎么问更好、怎么用更稳。现在最适合做的是把三个习惯固定下来：重要事实先核实、关键内容再润色、最终决策自己拍板。别小看这三步，它能让你避开大多数翻车现场。继续保持，你离高手只差几次高质量实战。";
         } else if(total >= 60) {
             rankName = "AI潜力实战员";
-            comment = "恭喜你顺利及格，这代表你已经拿到“与AI同行”的入场券。你具备了基础认知，也知道AI不是万能神灯，而是需要人类引导和把关的工具。这个阶段最关键的不是追求一次满分，而是把“会用一次”变成“次次用对”。建议你从三个小动作开始：第一，提问前先说清目标和场景；第二，看到特别确定的事实先做核验；第三，把AI回答当初稿，自己做最后优化。别担心分数暂时不高，真正拉开差距的从来不是天赋，而是习惯。你现在就像刚拿到驾照的新司机，已经能上路了，接下来多练几圈，路线会越来越熟，速度会越来越稳，信心也会越开越足。";
+            comment = "恭喜及格！《荀子》曰：'不积跬步，无以至千里。' 你已经拿到“与AI同行”的入场券。这个阶段最关键的不是追求满分，而是把“会用一次”变成“次次用对”。建议从三个小动作开始：提问前说清目标，看到事实先核实，把AI回答当初稿自己再改改。你现在就像刚拿驾照的新司机，多练几圈，路线会越来越熟，信心也会越来越足。";
         } else if(total >= 40) {
             rankName = "AI起步侦察员";
-            comment = "这次成绩说明你正站在“会用AI”的门口，已经推开门，但还没完全走进去。好消息是：方向是对的，而且你的提升空间非常大，属于进步会很快的类型。很多人一开始容易把AI当成“自动正确机”，这很正常，谁还没被它一本正经地忽悠过几次呢？关键是你愿不愿意建立自己的判断力。建议你下一轮答题时重点关注三个问题：AI能做什么、不能做什么、我该如何验证它。只要把这三个点练熟，你的分数会明显上升。请把这次当成热身赛，不是终局。你已经在路上了，而且是很有希望冲到前排的那种选手，继续冲！";
+            comment = "《论语》说：'知之为知之，不知为不知，是知也。' 你已经推开门了，谁还没被AI一本正经地忽悠过呢？关键是你愿不愿意建立自己的判断力。建议下一轮重点关注三件事：AI能做什么、不能做什么、我该怎么验证它。把这三个点练熟，分数准涨。把这次当热身赛，你已经在路上了，而且是很有希望冲到前排的那种。";
         } else {
             rankName = "AI新手村冒险者";
-            comment = "先给你一个掌声：愿意来做这份题，本身就比“围观但不行动”更厉害。分数暂时不理想没关系，这并不代表你不适合AI，通常只是还没掌握提问和判断的节奏。AI这件事最怕的不是“不会”，而是“以为自己会”。你现在正好处在最容易快速成长的阶段。建议你先做一件事：认真看完每道题解析，再做第二遍，你会明显感到“原来是这么回事”。接下来和AI对话时，记得多给背景、多给限制、多要例子；遇到关键事实先核验，别让自信语气骗过你。把今天当作升级起点，而不是分数终点。坚持几轮训练后，你会发现自己从“不会问”变成“问得准、改得快、用得稳”的高潜选手。";
+            comment = "《诗经》云：'如切如磋，如琢如磨。' 先给你鼓个掌：愿意来做这份题，本身就比“围观但不行动”厉害。分数不理想没关系，认真看完每道题解析再做第二遍，你会明显感到“原来是这么回事”。接下来和AI聊天时，记得多给背景、多要例子、遇到关键事实先核实。把今天当起点，而不是终点，冲就完了。";
         }
+
         rank = `恭喜你，获得称号：<span class="rank-value">${rankName}</span>`;
 
         const percent = total;
